@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supplier Rating</title>
+    <!-- Include CSS and JavaScript files -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Supplier Rating</h1>
+    <form action="rating.php" method="POST">
+        <h2>Quality Rating:</h2>
+        <label for="quality_rating">How would you rate the quality of the supplier's products/services?</label>
+        <select id="quality_rating" name="quality_rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <h2>Delivery Rating:</h2>
+        <label for="delivery_rating">How satisfied are you with the supplier's delivery performance?</label>
+        <select id="delivery_rating" name="delivery_rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <h2>Pricing Rating:</h2>
+        <label for="pricing_rating">How would you rate the pricing competitiveness of the supplier's products/services?</label>
+        <select id="pricing_rating" name="pricing_rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <h2>Customer Service Rating:</h2>
+        <label for="customer_service_rating">How satisfied are you with the supplier's customer service and support?</label>
+        <select id="customer_service_rating" name="customer_service_rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <h2>Reliability Rating:</h2>
+        <label for="reliability_rating">How reliable is the supplier in terms of meeting deadlines and commitments?</label>
+        <select id="reliability_rating" name="reliability_rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <h2>Comments:</h2>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+
+        <input type="submit" value="Submit Rating">
+    </form>
+</body>
+</html>

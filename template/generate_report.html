@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Report</title>
+    <!-- Include CSS and JavaScript files -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Generate Report</h1>
+    <form action="report.php" method="POST">
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="">All Categories</option>
+            <!-- Populate options dynamically from the database using PHP -->
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+        </select>
+
+        <!-- Include other report criteria fields -->
+
+        <input type="submit" value="Generate Report">
+    </form>
+</body>
+</html>

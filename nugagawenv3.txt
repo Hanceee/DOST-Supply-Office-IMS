@@ -1,0 +1,240 @@
+System Analysis: SuplayDOST
+
+Title: SuplayDOST - Supplier Management System
+
+1. Introduction:
+   - The SuplayDOST system is a Supplier Management System designed to facilitate supplier management for the Department of Science and Technology (DOST) Supply Office.
+   - The system aims to streamline the supplier management process, improve decision-making, and enhance the rating and feedback system for suppliers.
+
+2. System Overview:
+   - The SuplayDOST system consists of several key components, including user authentication, supplier management, category management, rating feedback, search functionality, and reporting functionalities.
+   - These components work together to provide a comprehensive solution for efficient supplier tracking, evaluation, and decision-making.
+
+3. Database Schema:
+   - The SuplayDOST system is built on the `dost_supply_office_db` database and includes the following tables:
+
+   - `category`:
+     - Columns: `category_id`, `category_name`, `category_description`
+     - Purpose: Stores supplier categories along with their descriptions.
+     - Allows for better categorization and filtering of suppliers.
+     - Initially empty, categories will be manually added by the Supply Office.
+
+   - `rating`:
+     - Columns: `rating_id`, `supplier_id`, `quality_rating`, `delivery_rating`, `pricing_rating`, `customer_service_rating`, `reliability_rating`, `comment`, `rating_date`, `user_id`
+     - Purpose: Records ratings given by users for suppliers.
+     - Enables the evaluation and assessment of supplier performance based on various rating criteria.
+     - Associates the ratings with specific suppliers and users.
+
+   - `supplier`:
+     - Columns: `supplier_id`, `supplier_name`, `address`, `contact_number`, `email`, `average_rating`, `category_id`, `date_last_rating`, `total_ratings`, `supplier_website`, `supplier_status`, `supplier_notes`
+     - Purpose: Contains information about the suppliers.
+     - Stores supplier details such as name, contact information, average rating, and category association.
+     - Tracks the date of the last rating received and the total number of ratings for each supplier.
+     - Provides additional fields for website, status, and notes related to the supplier.
+     - Initially empty, suppliers will be manually added by the Supply Office.
+
+   - `user`:
+     - Columns: `user_id`, `username`, `password`, `full_name`, `email`, `registration_date`, `last_login_date`, `otp_code`, `otp_expiry`
+     - Purpose: Stores user details for registration and login.
+     - Includes fields for username, password, full name, email, registration date, and last login date.
+     - Facilitates the implementation of user authentication and password reset functionalities.
+     - Incorporates fields for OTP (One-Time Password) code and its expiry for secure password reset.
+
+4. Functionality:
+   - User Authentication:
+     - Registration: Allows users to create an account with a unique username, password, full name, and email address.
+     - Login: Authenticates users based on their username and password.
+     - Password Reset: Generates an OTP code and sends it to the user's email for secure password reset.
+
+   - Supplier Management:
+     - Add Supplier: Enables the Supply Office to manually add new suppliers to the system by providing supplier details such as name, address, contact number, email, category association, website, and notes.
+     - Update Supplier: Allows the Supply Office to edit and update supplier information, including contact details, category, website, and notes.
+     - Delete Supplier: Provides the ability to remove suppliers from the system.
+     - View Supplier: Allows users to view all suppliers with their relevant information, including average rating, total ratings, and the date of the last rating received.
+    
+
+ - Search Supplier: Implements a search functionality to find suppliers based on user-defined criteria, such as supplier name, category, or contact information.
+
+   - Category Management:
+     - Add Category: Enables the Supply Office to add new supplier categories, including category name and description.
+     - View Categories: Displays all existing categories for reference and association with suppliers.
+
+   - Rating and Feedback:
+     - Submit Rating: Allows users to submit ratings and feedback for suppliers based on quality, delivery, pricing, customer service, and reliability.
+     - Store Rating: Records the ratings and feedback provided by users and associates them with the respective supplier and user.
+     - Calculate Average Rating: Automatically calculates the average rating for each supplier based on the ratings received.
+
+   - Reporting:
+     - Generate Supplier Reports: Allows users to generate reports based on various criteria, such as supplier category, date range, and rating threshold.
+     - Export Reports: Provides options to export generated reports in formats like PDF or Excel for further analysis and distribution.
+
+5. System Flow:
+   - The SuplayDOST system flow begins with user registration and authentication.
+   - Once logged in, users can access the supplier management, category management, rating feedback, and reporting functionalities.
+   - The Supply Office can manually add suppliers and categories to the system.
+   - Users can add, update, and view suppliers, submit ratings and feedback, generate reports, and perform searches based on their requirements.
+   - The system ensures data integrity, security, and convenience by incorporating user authentication, password reset using OTP, supplier management, category management, rating feedback, and reporting functionalities.
+
+6. Required Files:
+   - The development of the SuplayDOST system requires the following files and resources:
+     - HTML files: to structure the webpages and user interface.
+     - CSS files: to define the styling and layout of the webpages.
+     - JavaScript files: to implement client-side interactions and dynamic functionalities.
+     - PHP files: to handle server-side processing, database interactions, and user authentication.
+     - Database file: to create and manage the dost_supply_office_db database.
+     - External libraries or frameworks: if utilized, specify the names and purposes.
+
+7. Conclusion:
+   - The SuplayDOST system provides an efficient solution for supplier management within the DOST Supply Office.
+   - By incorporating user authentication, supplier management, category management, rating feedback, search functionality, and reporting functionalities, the system enables streamlined operations, informed decision-making, and effective supplier evaluation.
+   - The SuplayDOST system enhances the overall supplier management process, improving productivity and facilitating better supplier relationships for the DOST Supply Office.
+
+Note: The system analysis document provides a comprehensive overview of the SuplayDOST system, including its components, functionalities, database schema, system flow, required files, and overall analysis. The specific implementation details and technologies used may vary based on the project requirements and development preferences.
+
+DATABASE:
+
+-- Create the category table
+CREATE TABLE category (
+  category_id INT(11) NOT NULL,
+  category_name VARCHAR(100) NOT NULL,
+  category_description VARCHAR(255),
+  PRIMARY KEY (category_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Create the rating table
+CREATE TABLE rating (
+  rating_id INT(11) NOT NULL,
+  supplier_id INT(11) NOT NULL,
+  quality_rating INT(11) NOT NULL,
+  delivery_rating INT(11) NOT NULL,
+  pricing_rating INT(11) NOT NULL,
+  customer_service_rating INT(11) NOT NULL,
+  reliability_rating INT(11) NOT NULL,
+  comment VARCHAR(255),
+  rating_date DATE,
+  user_id INT(11),
+  PRIMARY KEY (rating_id),
+  FOREIGN KEY (supplier_id) REFERENCES supplier(supplier_id),
+  FOREIGN KEY (user_id) REFERENCES user(user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Create the supplier table
+CREATE TABLE supplier (
+  supplier_id INT(11) NOT NULL,
+  supplier_name VARCHAR(100) NOT NULL,
+  address VARCHAR(200) NOT NULL,
+  contact_number VARCHAR(20) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  average_rating DECIMAL(3,2) DEFAULT 0.00,
+  category_id INT(11),
+  date_last_rating DATE,
+  total_ratings INT(11) DEFAULT 0,
+  supplier_website VARCHAR(100),
+  supplier_status VARCHAR(50),
+  supplier_notes VARCHAR(255),
+  PRIMARY KEY (supplier_id),
+  FOREIGN KEY (category_id) REFERENCES category(category_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Create the user table
+CREATE TABLE user (
+  user_id INT(11) NOT NULL,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  full_name VARCHAR(100) NOT NULL,
+  email VARCHAR(100),
+  registration_date DATE,
+  last_login_date DATE,
+  otp_code VARCHAR(10),
+  otp_expiry DATETIME,
+  PRIMARY KEY (user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+DATABASE EXAMPLE:
+
+**Table: category**
+
+| category_id | category_name    | category_description  |
+|-------------|-----------------|-----------------------|
+| 1           | Electronics     | Supplier of electronics and gadgets   |
+| 2           | Office Supplies | Supplier of office equipment and supplies |
+| 3           | Furniture       | Supplier of furniture and fixtures      |
+
+**Table: rating**
+
+| rating_id | supplier_id | quality_rating | delivery_rating | pricing_rating | customer_service_rating | reliability_rating | comment       | rating_date | user_id |
+|-----------|-------------|----------------|-----------------|----------------|-------------------------|--------------------|---------------|-------------|---------|
+| 1         | 1           | 4              | 5               | 4              | 4                       | 5                  | Great service | 2023-07-01  | 1       |
+| 2         | 1           | 3              | 3               | 4              | 3                       | 4                  | Average       | 2023-07-02  | 2       |
+| 3         | 2           | 5              | 4               | 5              | 5                       | 4                  | Excellent     | 2023-07-03  | 1       |
+
+**Table: supplier**
+
+| supplier_id | supplier_name       | address               | contact_number   | email                  | average_rating | category_id | date_last_rating | total_ratings | supplier_website        | supplier_status | supplier_notes                                   |
+|-------------|---------------------|-----------------------|------------------|------------------------|----------------|-------------|------------------|---------------|-------------------------|-----------------|--------------------------------------------------|
+| 1           | ABC Electronics     | 123 Main Street       | 555-1234         | abc@example.com        | 4.33           | 1           | 2023-07-03       | 2             | www.abcelectronics.com   | Active          | Provides quality electronics and gadgets.        |
+| 2           | XYZ Office Supplies | 456 Elm Avenue        | 555-5678         | xyz@example.com        | 4.67           | 2           | 2023-07-02       | 1             | www.xyzofficesupplies.com | Active          | Wide range of office supplies available.         |
+| 3           | Furniture Plus      | 789 Oak Street        | 555-91011        | info@furnitureplus.com | 5.00           | 3           | 2023-07-01       | 1             | www.furnitureplus.com     | Active          | Specializes in high-quality furniture products.  |
+
+**Table: user**
+
+| user_id | username | password     | full_name    | email                | registration_date | last_login_date | otp_code | otp_expiry         |
+|---------|----------|--------------|--------------|----------------------|-------------------|-----------------|----------|--------------------|
+| 1       | johnDoe  | password123  | John Doe     | john.doe@example.com | 2023-07-01        | 2023-07-03      | 123456   | 2023-07-03 12:00  |
+| 2       | janeSmith| secret456    | Jane Smith   | jane.smith@example.com| 2023-07-02        | 2023-07-03      | 654321   | 2023-07-03 18:00  |
+
+
+PRINT REPORT FOR PRINTING:
+
+----------------------------------------------
+           Supplier Report
+----------------------------------------------
+
+Supplier Information:
+-----------------------------
+Supplier Name: XYZ Supplier
+Address: 123 Main Street, City
+Contact Number: (123) 456-7890
+Email: supplier@example.com
+Category: Electronics
+
+Average Ratings:
+-----------------------------
+Quality Rating: 4.5
+Delivery Rating: 4.2
+Pricing Rating: 3.8
+Customer Service Rating: 4.7
+Reliability Rating: 4.3
+
+Additional Details:
+-----------------------------
+Date of Last Rating: June 15, 2023
+Total Number of Ratings: 10
+
+Comments:
+-----------------------------
+- "Great quality products and quick delivery."
+- "Pricing could be more competitive."
+- "Excellent customer service and support."
+
+----------------------------------------------
+
+RATING EXAMPLE:
+
+
+1. Quality Rating:
+   - How would you rate the quality of the supplier's products/services? (Scale of 1 to 5)
+
+2. Delivery Rating:
+   - How satisfied are you with the supplier's delivery performance? (Scale of 1 to 5)
+
+3. Pricing Rating:
+   - How would you rate the pricing competitiveness of the supplier's products/services? (Scale of 1 to 5)
+
+4. Customer Service Rating:
+   - How satisfied are you with the supplier's customer service and support? (Scale of 1 to 5)
+
+5. Reliability Rating:
+   - How reliable is the supplier in terms of meeting deadlines and commitments? (Scale of 1 to 5)
+
+6. Comments 

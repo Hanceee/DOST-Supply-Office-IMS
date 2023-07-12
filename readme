@@ -1,0 +1,112 @@
+Certainly! Here are the suggested detailed contents for each HTML file based on the functionality of the system:
+
+1. `index.html` (Homepage):
+   - Welcome message and brief introduction to the system
+   - Login form to access the user dashboard
+   - Registration link for new users to create an account
+
+2. `login.html`:
+   - Login form with fields for username and password
+   - "Forgot Password" link for password recovery
+
+3. `dashboard.html` (User Dashboard):
+   - User profile section displaying the logged-in user's information
+   - Navigation menu or sidebar with links to various functionalities
+   - Summary of recent activities or notifications
+
+4. `add_supplier.html`:
+   - Form to add a new supplier with fields for supplier name, address, contact details, email, and category selection
+
+5. `update_supplier.html`:
+   - Form to update supplier information with pre-filled fields and editable inputs for each attribute
+
+6. `search_suppliers.html`:
+   - Search form with options to search suppliers by name, category, or other relevant criteria
+
+7. `view_supplier.html`:
+   - Supplier details section displaying the information of a selected supplier, including name, address, contact details, email, average rating, date of the last rating, and total number of ratings
+   - Ratings and comments section displaying the ratings and comments received from users
+
+8. `generate_report.html`:
+   - Form to generate a supplier report with options to select the report criteria, such as category, date range, or rating threshold
+
+9. `print_report.html`:
+   - Printable version of the generated supplier report with a clean and well-formatted layout suitable for printing
+
+10. `error.html`:
+   - General error page displaying a friendly error message and providing guidance on how to proceed
+   - Optionally, include a link to the homepage or a contact/support section for further assistance
+
+11. `not_found.html`:
+   - 404 Not Found page indicating that the requested page or resource does not exist
+   - Optionally, provide links to navigate back to the homepage or other relevant sections
+
+12. `unauthorized.html`:
+   - Unauthorized access page indicating that the user does not have permission to view or perform certain actions
+   - Optionally, provide a link to the login page or contact/support section for assistance
+
+13. `server_error.html`:
+   - 500 Internal Server Error page indicating that there is an issue with the server
+   - Optionally, provide guidance on what to do next or contact/support information for reporting the error
+
+Please note that the exact styling and layout of these HTML files will depend on your design preferences and the overall theme of your application. Additionally, you may want to include header and footer sections for consistent branding and navigation across all pages.
+
+Feel free to modify the content and layout to fit your specific needs and ensure a user-friendly experience.
+
+Certainly! Here's a recap of the detailed contents for each HTML file based on the system requirements:
+
+1. index.html:
+   - A homepage that welcomes users to the DOST Supply Office Information Management System.
+   - It can include a brief introduction to the system, key features, and any important announcements or updates.
+
+2. login.html:
+   - A login page where users can enter their credentials to access the system.
+   - It should include input fields for username and password, along with a login button.
+   - You can also provide an option for users to register if they don't have an account.
+
+3. dashboard.html:
+   - A user dashboard that provides an overview of the system's functionalities.
+   - It can include navigation links or buttons to various features such as managing suppliers, rating suppliers, generating reports, etc.
+   - You can also display relevant statistics or summaries on the dashboard for quick reference.
+
+4. add_supplier.html:
+   - A form for adding a new supplier to the system.
+   - It should include input fields for the supplier's name, address, contact number, email, and any other relevant information.
+   - You can provide dropdown menus or checkboxes to select the supplier's category.
+
+5. update_supplier.html:
+   - A form for updating the details of an existing supplier.
+   - It should display the current information of the supplier and allow users to modify any fields.
+   - The form should have a submit button to save the changes.
+
+6. search_suppliers.html:
+   - A form that allows users to search for suppliers based on specific criteria.
+   - It can include input fields for filtering suppliers by name, category, average rating, etc.
+   - Users should be able to submit the form to view the search results.
+
+7. view_supplier.html:
+   - A page that displays the detailed information of a selected supplier.
+   - It should present all the relevant information stored in the database for the supplier, such as name, address, contact details, average rating, etc.
+
+8. generate_report.html:
+   - A page where users can generate supplier reports based on specific criteria.
+   - It can include options to select the desired filters, such as category, date range, etc.
+   - Users should be able to generate the report and view the results.
+
+9. print_report.html:
+   - A page that presents a printable version of the supplier report.
+   - It should display the report in a printer-friendly format suitable for printing or saving as a PDF.
+
+10. error.html, not_found.html, unauthorized.html, server_error.html:
+    - These are error handling pages that can be displayed in case of specific errors or issues.
+    - They should provide appropriate error messages and instructions for users to navigate back or contact support.
+
+11. style.css:
+    - A CSS file that contains the styles and layout for all HTML files.
+    - It should define the visual appearance, such as colors, fonts, spacing, etc., to create a consistent and visually appealing user interface.
+
+12. script.js:
+    - A JavaScript file that contains any client-side functionality or interactivity required for the system.
+    - It can handle form validations, AJAX requests, dynamic content updates, or any other client-side operations.
+
+Please note that the specific design and layout of each HTML file can vary based on your preferences and the branding requirements of the system. Feel free to customize the content and styles to suit your needs.

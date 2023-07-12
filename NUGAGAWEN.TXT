@@ -1,0 +1,214 @@
+------------------DOST Supply Office Information Management System-----------------
+
+-- Database: dost_supply_office_db
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(100) NOT NULL,
+  `category_description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
+--
+
+CREATE TABLE `rating` (
+  `rating_id` int(11) NOT NULL,
+  `supplier_id` int(11) DEFAULT NULL,
+  `quality_rating` int(11) NOT NULL,
+  `delivery_rating` int(11) NOT NULL,
+  `pricing_rating` int(11) NOT NULL,
+  `customer_service_rating` int(11) NOT NULL,
+  `reliability_rating` int(11) NOT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `rating_date` date DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `supplier_id` int(11) NOT NULL,
+  `supplier_name` varchar(100) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `contact_number` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `average_rating` decimal(3,2) DEFAULT 0.00,
+  `category_id` int(11) DEFAULT NULL,
+  `date_last_rating` date DEFAULT NULL,
+  `total_ratings` int(11) DEFAULT 0,
+  `supplier_website` varchar(255) DEFAULT NULL,
+  `supplier_status` varchar(20) DEFAULT NULL,
+  `supplier_notes` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `registration_date` date DEFAULT NULL,
+  `last_login_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+PRINT REPORT:
+
+----------------------------------------------
+           Supplier Report
+----------------------------------------------
+
+Supplier Information:
+-----------------------------
+Supplier Name: XYZ Supplier
+Address: 123 Main Street, City
+Contact Number: (123) 456-7890
+Email: supplier@example.com
+Category: Electronics
+
+Average Ratings:
+-----------------------------
+Quality Rating: 4.5
+Delivery Rating: 4.2
+Pricing Rating: 3.8
+Customer Service Rating: 4.7
+Reliability Rating: 4.3
+
+Additional Details:
+-----------------------------
+Date of Last Rating: June 15, 2023
+Total Number of Ratings: 10
+
+Comments:
+-----------------------------
+- "Great quality products and quick delivery."
+- "Pricing could be more competitive."
+- "Excellent customer service and support."
+
+----------------------------------------------
+
+SYSTEM FLOW:
+
+
+
+1. User Registration:
+   - Users can register with the system by providing their username, password, full name, and email address.
+   - Upon successful registration, the user is redirected to the login page.
+
+2. User Login:
+   - Users can log in using their registered username and password.
+   - After successful login, the user is redirected to the dashboard.
+
+3. Dashboard:
+   - The dashboard serves as the main page after login, providing an overview of the system's functionalities.
+   - It displays options for managing suppliers, categories, and generating reports.
+
+4. Supplier Management:
+   - Users can add new suppliers by providing their name, address, contact details, and email.
+   - Users can update existing supplier information or delete suppliers if necessary.
+   - Users can search for suppliers based on different criteria and view detailed supplier information.
+
+5. Category Management:
+   - Users can add new categories that can be assigned to suppliers.
+   - Categories allow for better organization and classification of suppliers.
+
+6. Rating Management:
+   - Users can rate suppliers based on predefined criteria such as quality, delivery, pricing, customer service, and reliability.
+   - The ratings are used to calculate the average rating for each supplier.
+   - Users can also provide optional comments with their ratings.
+
+7. Supplier Reports:
+   - Users can generate supplier reports that provide an overview of supplier information, including average ratings and other relevant details.
+   - The reports can be printed or saved for future reference.
+
+8. User Authentication and Security:
+   - User authentication is implemented to ensure secure access to the system.
+   - Only registered and authenticated users can perform system functions.
+   - Access control can be implemented to assign different roles or permissions to users.
+
+
+RATING EXAMPLE:
+
+
+1. Quality Rating:
+   - How would you rate the quality of the supplier's products/services? (Scale of 1 to 5)
+
+2. Delivery Rating:
+   - How satisfied are you with the supplier's delivery performance? (Scale of 1 to 5)
+
+3. Pricing Rating:
+   - How would you rate the pricing competitiveness of the supplier's products/services? (Scale of 1 to 5)
+
+4. Customer Service Rating:
+   - How satisfied are you with the supplier's customer service and support? (Scale of 1 to 5)
+
+5. Reliability Rating:
+   - How reliable is the supplier in terms of meeting deadlines and commitments? (Scale of 1 to 5)
+
+6. Comments 
+
+Files:
+
+Certainly! Here's the updated document with all the changes incorporated:
+
+System Flow:
+The system flow describes how users interact with the DOST Supply Office Information Management System. Users can register and log in to the system to access various functionalities. They can manage suppliers by adding, updating, or deleting supplier information. Users can also manage categories by adding new categories. When adding a supplier, users can select categories from the existing ones inputted in the category management. Users can rate suppliers based on predefined criteria, calculate average ratings, and provide comments. The system allows users to search for suppliers based on different criteria and view their details. Additionally, users can generate supplier reports that include supplier information, average ratings, total ratings, and comments, and print them if needed. User authentication ensures secure access to the system.
+
+Database Schema:
+The database schema consists of four main tables: Supplier, Rating, Category, and User. The Supplier table stores supplier information such as name, address, contact details, email, average rating, category ID, date of the last rating, total number of ratings, and comments. The Rating table stores ratings for each supplier, including criteria such as quality, delivery, pricing, customer service, reliability, and comments. The Category table stores categories inputted by users. The User table stores user information for authentication purposes, including usernames, passwords, full names, and roles.
+
+Files:
+
+1. HTML/CSS/JavaScript Files:
+   - index.html
+   - login.html
+   - register.html
+   - dashboard.html
+   - add_supplier.html
+   - update_supplier.html
+   - search_suppliers.html
+   - view_supplier.html
+   - generate_report.html
+   - print_report.html
+   - error.html
+   - not_found.html
+   - unauthorized.html
+   - server_error.html
+   - style.css
+   - script.js
+
+2. PHP Files:
+   - config.php
+   - register.php
+   - login.php
+   - logout.php
+   - supplier.php
+   - rating.php
+   - category.php
+   - error_handler.php
+   - functions.php
+
+3. Database Files:
+   - dost_supply_office_db.sql
+   - database.php
+
+
+

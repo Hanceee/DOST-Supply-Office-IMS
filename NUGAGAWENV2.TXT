@@ -1,0 +1,187 @@
+Documentation: SuplayDOST
+
+1. Timeline:
+   - Database Design and Schema: [Date]
+   - Front-end Development: [Date]
+   - Back-end Development: [Date]
+   - Integration and Testing: [Date]
+   - Deployment: [Date]
+
+2. Database Schema:
+   The revised database schema for SuplayDOST includes the following tables:
+
+   - `category`: Stores supplier categories along with their descriptions.
+     - Columns: `category_id`, `category_name`, `category_description`
+
+   - `rating`: Records ratings given by users for suppliers.
+     - Columns: `rating_id`, `supplier_id`, `quality_rating`, `delivery_rating`, `pricing_rating`, `customer_service_rating`, `reliability_rating`, `comment`, `rating_date`, `user_id`
+
+   - `supplier`: Contains information about the suppliers.
+     - Columns: `supplier_id`, `supplier_name`, `address`, `contact_number`, `email`, `average_rating`, `category_id`, `date_last_rating`, `total_ratings`, `supplier_website`, `supplier_status`, `supplier_notes`
+
+   - `user`: Stores user details for registration and login.
+     - Columns: `user_id`, `username`, `password`, `full_name`, `email`, `registration_date`, `last_login_date`, `otp_code`, `otp_expiry`
+
+3. System Flow:
+   1. User Registration:
+      - Users can register with SuplayDOST by providing their username, password, full name, and email address.
+      - Upon successful registration, a verification email is sent to the user's email address for account activation.
+
+   2. Email Verification:
+      - Users need to verify their email address by clicking on the verification link provided in the email.
+      - After successful verification, the user's account is activated and they can log in.
+
+   3. User Login:
+      - Registered users can log in to the system using their username and password.
+      - Upon successful login, users are redirected to the main dashboard.
+
+   4. Forgot Password:
+      - Users can request a password reset by clicking on the "Forgot Password" link on the login page.
+      - An email with a one-time password (OTP) code is sent to the user's registered email address.
+
+   5. OTP Verification:
+      - Users need to enter the received OTP code in the system to verify their identity.
+      - After successful OTP verification, users are prompted to reset their password.
+
+   6. Reset Password:
+      - Users can enter a new password to reset their existing password.
+      - Upon successful password reset, users can log in using their new password.
+
+   7. Supplier Management, Category Management, Rating and Feedback, Supplier Search and Details:
+      - These functionalities remain the same as described in the previous documentation.
+
+4. Needed Files:
+   - HTML/CSS Files: Create HTML and CSS files for user registration, login, email verification, forgot password, OTP verification, password reset, and other relevant pages.
+   - JavaScript Files: Write JavaScript code for client-side interactivity, form validation, and dynamic page behavior.
+   - PHP Files: Develop PHP files for server-side processing, database interactions, and business logic implementation.
+   - Database SQL File: Create an SQL file containing the database schema and sample data for easy setup.
+   - PHPMailer Library: Integrate the PHPMailer library for sending emails and OTP codes using Gmail SMTP.
+
+5. Essential Functionalities (suggested):
+   - User Registration and Email Verification: Implement a secure registration process and send a verification email for account activation.
+   - User Login and Authentication: Provide a secure login system with username and password authentication.
+   - Forgot Password and OTP Verification: Allow users to reset their password by
+
+ sending an OTP code to their registered email address.
+   - Password Reset: Enable users to reset their password securely.
+   - Supplier Management: Implement CRUD (Create, Read, Update, Delete) functionality for managing suppliers' information.
+   - Category Management: Allow administrators to manage supplier categories.
+   - Rating and Feedback: Enable users to rate and provide feedback for suppliers.
+   - Supplier Search and Details: Provide a search functionality to find suppliers based on various criteria and display detailed information about each supplier.
+
+5. PRINT REPORT FOR PRINTING:
+
+----------------------------------------------
+           Supplier Report
+----------------------------------------------
+
+Supplier Information:
+-----------------------------
+Supplier Name: XYZ Supplier
+Address: 123 Main Street, City
+Contact Number: (123) 456-7890
+Email: supplier@example.com
+Category: Electronics
+
+Average Ratings:
+-----------------------------
+Quality Rating: 4.5
+Delivery Rating: 4.2
+Pricing Rating: 3.8
+Customer Service Rating: 4.7
+Reliability Rating: 4.3
+
+Additional Details:
+-----------------------------
+Date of Last Rating: June 15, 2023
+Total Number of Ratings: 10
+
+Comments:
+-----------------------------
+- "Great quality products and quick delivery."
+- "Pricing could be more competitive."
+- "Excellent customer service and support."
+
+----------------------------------------------
+
+6. RATING EXAMPLE:
+
+
+1. Quality Rating:
+   - How would you rate the quality of the supplier's products/services? (Scale of 1 to 5)
+
+2. Delivery Rating:
+   - How satisfied are you with the supplier's delivery performance? (Scale of 1 to 5)
+
+3. Pricing Rating:
+   - How would you rate the pricing competitiveness of the supplier's products/services? (Scale of 1 to 5)
+
+4. Customer Service Rating:
+   - How satisfied are you with the supplier's customer service and support? (Scale of 1 to 5)
+
+5. Reliability Rating:
+   - How reliable is the supplier in terms of meeting deadlines and commitments? (Scale of 1 to 5)
+
+6. Comments 
+
+
+7. Step-by-Step Guide for Front-end Development:
+
+1. index.html (Home Page):
+   - Create a visually appealing homepage introducing the SuplayDOST system.
+   - Include a brief description of the system and its key features.
+   - Add a call-to-action button or link to direct users to the login page.
+
+2. login.html (Login Page):
+   - Design a login form with input fields for username/email and password.
+   - Implement client-side validation to ensure all required fields are filled.
+   - Provide a "Forgot Password" link that redirects users to the password recovery page.
+   - Include a "Register" link to direct new users to the registration page.
+
+3. register.html (Registration Page):
+   - Create a registration form with fields for username, password, full name, email, and contact number.
+   - Implement client-side validation to ensure the accuracy of the entered data.
+   - Include appropriate error messages for validation failures.
+   - Add a captcha or other spam prevention mechanism to protect against automated registrations.
+
+4. dashboard.html (User Dashboard):
+   - Design a user dashboard that provides an overview of the system's main features.
+   - Include navigation elements or a side menu to access different sections of the application.
+   - Display relevant information such as the user's name, role, and any notifications or alerts.
+   - Add links or buttons to access different functionalities, such as managing suppliers, ratings, and reports.
+
+5. add_supplier.html (Add Supplier Page):
+   - Create a form for adding a new supplier with input fields for supplier name, address, contact number, email, and category.
+   - Include dropdown menus or autocomplete fields for selecting the supplier's category.
+   - Implement client-side validation to ensure all required fields are filled and the data is properly formatted.
+   - Provide feedback or success messages upon successful supplier addition.
+
+6. update_supplier.html (Update Supplier Page):
+   - Design a form for updating supplier information.
+   - Populate the form with existing supplier details for easy editing.
+   - Allow users to modify the supplier's name, address, contact number, email, and category.
+   - Implement client-side validation to ensure data integrity.
+
+7. search_suppliers.html (Search Suppliers Page):
+   - Create a search form with input fields for searching suppliers based on different criteria.
+   - Implement dynamic search functionality using AJAX or JavaScript to display search results without page reload.
+   - Display the search results in a tabular format, showing relevant information such as supplier name, category, and average rating.
+   - Include sorting and filtering options to enhance the user's search experience.
+
+8. view_supplier.html (View Supplier Details Page):
+   - Design a page to display detailed information about a selected supplier.
+   - Include all relevant supplier details, such as name, address, contact number, email, category, and average rating.
+   - Display additional information such as the supplier's total ratings and date of the last rating.
+   - Show a list of ratings and feedback received from users.
+
+9. generate_report.html (Generate Supplier Report Page):
+   - Create a form to generate supplier reports based on different criteria, such as category or rating range.
+   - Include options for selecting the desired report format, such as PDF or CSV.
+   - Implement server-side logic to generate the report based on the selected criteria.
+   - Provide a download link or display the generated report directly on the page.
+
+10. error.html (Error Page):
+    - Design a visually appealing error page to handle any unexpected errors or exceptions.
+    - Display an appropriate error message to inform users about the encountered issue.
+    - Include a link or button to redirect users back to the previous page or the home page.
+
