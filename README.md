@@ -1,2 +1,2 @@
 # DOST-Supply-Office-IMS
- Supplier Manangement System with Transaction Rating.
+ Supplier Management with Transaction Rating
